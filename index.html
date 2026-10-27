@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>My First ABC Learning Book (A-Z & 20 Interactive Quizzes)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,8 @@
       --bg-cream: #fbf9f5;
       --card-bg: #ffffff;
       --text-dark: #2d3142;
-      --border-radius: 24px;
-      --box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      --border-radius: 20px;
+      --box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
 
     * {
@@ -38,75 +38,67 @@
       overflow-x: hidden;
     }
 
-    /* Top Sticky Header */
+    /* Top Sticky Header - Fully Responsive */
     header {
       background: linear-gradient(135deg, #ffeef2, #eef9ff);
-      padding: 16px 24px;
+      padding: 12px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 3px solid #f0e6d6;
+      border-bottom: 2px solid #f0e6d6;
       position: sticky;
       top: 0;
       z-index: 900;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .brand-title {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--primary-red);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
     }
 
     .brand-title span {
       color: var(--primary-blue);
     }
 
-    .header-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
     .btn {
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-weight: 600;
       border: none;
-      padding: 10px 20px;
+      padding: 8px 14px;
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      white-space: nowrap;
     }
 
     .btn-print {
       background-color: var(--primary-green);
       color: white;
-      box-shadow: 0 4px 12px rgba(82, 196, 26, 0.3);
-    }
-
-    .btn-print:hover {
-      transform: translateY(-2px);
-      background-color: #43a814;
+      box-shadow: 0 4px 10px rgba(82, 196, 26, 0.3);
     }
 
     /* Main Container */
     main {
       flex: 1;
-      max-width: 1240px;
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
-      padding: 24px 20px 110px 20px;
+      padding: 16px 14px 100px 14px;
     }
 
     .tab-content {
       display: none;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.25s ease;
     }
 
     .tab-content.active {
@@ -114,106 +106,99 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.6rem;
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       color: #3f3d56;
     }
 
     .section-subtitle {
       text-align: center;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: #778ca3;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
+      padding: 0 8px;
     }
 
-    /* Alphabet Cards Grid (A-Z) */
+    /* Cards Grid (A-Z) */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .abc-card {
       background: var(--card-bg);
       border-radius: var(--border-radius);
-      border: 3px solid #eee;
+      border: 2px solid #eee;
       box-shadow: var(--box-shadow);
-      padding: 22px;
+      padding: 18px;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .abc-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.1);
     }
 
     .card-badge {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .letter-display {
-      font-size: 3.2rem;
+      font-size: 2.8rem;
       font-weight: 700;
       line-height: 1;
     }
 
     .audio-btn {
       background: #f4f6fc;
-      border: 2px solid #e1e7f5;
+      border: 1px solid #d0d7ee;
       padding: 6px 12px;
-      border-radius: 30px;
+      border-radius: 20px;
       cursor: pointer;
       font-family: inherit;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #4b6584;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: background 0.2s ease;
-    }
-
-    .audio-btn:hover {
-      background: #dce4f7;
     }
 
     .hero-art {
-      font-size: 4.8rem;
-      margin: 8px 0;
+      font-size: 4.2rem;
+      margin: 6px 0;
       user-select: none;
     }
 
     .card-word {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: #2d3142;
     }
 
     .card-sentence {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: #778ca3;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    /* Tracing Canvas Box */
+    /* Tracing Box */
     .tracing-box {
       background: #fbfbfd;
       border: 2px dashed #d1d8e0;
-      border-radius: 16px;
-      padding: 10px;
+      border-radius: 14px;
+      padding: 8px;
       position: relative;
     }
 
@@ -225,138 +210,129 @@
     }
 
     .tracing-label {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      color: #a5b1c2;
+      color: #8896a6;
     }
 
     .tracing-canvas {
       width: 100%;
-      height: 95px;
+      height: 90px;
       background: #ffffff;
-      border-radius: 10px;
+      border-radius: 8px;
       touch-action: none;
       cursor: crosshair;
+      display: block;
     }
 
     .btn-clear {
-      padding: 4px 10px;
+      padding: 3px 8px;
       font-size: 0.75rem;
       border-radius: 6px;
       border: 1px solid #ced6e0;
       background: white;
       cursor: pointer;
-      font-family: inherit;
     }
 
-    /* Numbers 1-20 Section */
+    /* Numbers Grid */
     .numbers-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
     }
 
-    @media (max-width: 900px) {
-      .numbers-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 480px) {
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .num-card {
       background: white;
-      border-radius: 20px;
-      padding: 18px 12px;
+      border-radius: 16px;
+      padding: 14px 10px;
       text-align: center;
       border: 2px solid #eef2f7;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
       cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .num-card:hover {
-      transform: scale(1.03);
     }
 
     .num-digit {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: var(--primary-blue);
     }
 
     .num-word {
-      font-size: 1.15rem;
+      font-size: 1rem;
       color: #576574;
       font-weight: 600;
     }
 
     .num-icons {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       letter-spacing: 2px;
-      margin-top: 6px;
-      min-height: 28px;
+      margin-top: 4px;
+      min-height: 24px;
     }
 
-    /* Scoreboard Banner for Quizzes */
+    /* Scoreboard */
     .score-banner {
       background: linear-gradient(135deg, #fff3b0, #ffdfba);
       border: 2px solid #ffd166;
-      border-radius: 20px;
-      padding: 16px 24px;
-      margin: 0 auto 30px auto;
-      max-width: 700px;
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin: 0 auto 20px auto;
+      max-width: 650px;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      box-shadow: var(--box-shadow);
-      font-size: 1.3rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #795548;
+      text-align: center;
     }
 
     .score-banner span {
       color: #d97706;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
 
-    /* Quizzes Grid Layout */
+    /* Quizzes */
     .quizzes-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
     }
 
     .game-container {
       background: white;
       border-radius: var(--border-radius);
-      padding: 24px;
+      padding: 18px 14px;
       box-shadow: var(--box-shadow);
       border: 2px solid #eef2f7;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       text-align: center;
       position: relative;
     }
 
     .quiz-num-badge {
       position: absolute;
-      top: 14px;
-      left: 18px;
+      top: 10px;
+      left: 14px;
       background: #eef2ff;
       color: #4f46e5;
-      padding: 4px 10px;
+      padding: 2px 8px;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 700;
     }
 
     .game-question {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      margin: 22px 0 16px 0;
+      margin: 20px 0 14px 0;
       color: #2d3142;
-      min-height: 50px;
+      min-height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -365,24 +341,19 @@
     .quiz-options {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
     .quiz-card {
       background: #fdfaf6;
-      border: 3px solid #f1e7db;
-      border-radius: 16px;
-      padding: 14px 18px;
+      border: 2px solid #f1e7db;
+      border-radius: 14px;
+      padding: 10px 12px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      min-width: 85px;
+      min-width: 75px;
       flex: 1;
-    }
-
-    .quiz-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--primary-yellow);
+      touch-action: manipulation;
     }
 
     .quiz-card.correct {
@@ -396,52 +367,52 @@
     }
 
     .quiz-icon {
-      font-size: 2.6rem;
+      font-size: 2.2rem;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .quiz-label {
-      font-size: 1.05rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      color: #333;
     }
 
     /* Certificate Section */
     .certificate-frame {
       background: white;
-      border: 12px double #ffb703;
-      border-radius: 20px;
-      padding: 40px;
+      border: 8px double #ffb703;
+      border-radius: 16px;
+      padding: 24px 16px;
       text-align: center;
-      max-width: 800px;
+      max-width: 700px;
       margin: 0 auto;
-      position: relative;
     }
 
     .cert-title {
-      font-size: 2.8rem;
+      font-size: 2rem;
       color: #ff5e7e;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .cert-subtitle {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       color: #576574;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .cert-input {
       font-family: inherit;
-      font-size: 2rem;
+      font-size: 1.4rem;
       text-align: center;
       border: none;
-      border-bottom: 3px dashed #ffb703;
-      width: 80%;
+      border-bottom: 2px dashed #ffb703;
+      width: 90%;
+      max-width: 380px;
       outline: none;
       color: #2d3142;
       font-weight: 700;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
+      padding: 4px;
     }
 
     /* Bottom Navigation Bar */
@@ -451,12 +422,11 @@
       left: 0;
       right: 0;
       background: #ffffff;
-      border-top: 2px solid #edf2f7;
+      border-top: 1px solid #edf2f7;
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 10px 16px;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+      justify-content: space-around;
+      padding: 8px 4px;
+      box-shadow: 0 -3px 15px rgba(0,0,0,0.06);
       z-index: 1000;
     }
 
@@ -467,18 +437,18 @@
       background: none;
       border: none;
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: #8395a7;
       cursor: pointer;
-      padding: 6px 16px;
-      border-radius: 14px;
-      transition: all 0.2s ease;
-      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 10px;
+      gap: 2px;
+      flex: 1;
     }
 
     .nav-item span.icon {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
 
     .nav-item.active {
@@ -486,144 +456,98 @@
       background-color: #eaf6ff;
     }
 
-    /* Print Stylesheet */
+    /* Print View */
     @media print {
-      body {
-        background: white !important;
-      }
-
-      header, .bottom-bar, .btn-clear, .audio-btn, .header-actions {
-        display: none !important;
-      }
-
-      main {
-        max-width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-
-      .tab-content {
-        display: block !important;
-        page-break-before: always;
-      }
-
-      .tab-content:first-child {
-        page-break-before: avoid;
-      }
-
-      .abc-card, .game-container, .certificate-frame {
-        page-break-inside: avoid;
-        break-inside: avoid;
-        box-shadow: none;
-        border: 2px solid #bbb;
-        margin-bottom: 24px;
-      }
-
-      .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 16px;
-      }
-
-      .quizzes-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 16px;
-      }
+      header, .bottom-bar, .btn-clear, .audio-btn { display: none !important; }
+      .tab-content { display: block !important; }
+      .abc-card, .game-container, .certificate-frame { break-inside: avoid; }
+      .cards-grid, .quizzes-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Top Header -->
   <header>
     <div class="brand-title">
-      🦁 My First <span>ABC</span> Learning Adventure
+      🦁 ABC <span>Adventure</span>
     </div>
-    <div class="header-actions">
-      <button class="btn btn-print" onclick="window.print()">
-        🖨️ Download / Print Complete E-Book
-      </button>
-    </div>
+    <button class="btn btn-print" onclick="window.print()">
+      🖨️ Print E-Book
+    </button>
   </header>
 
   <main>
-    <!-- TAB 1: ALL 26 LETTERS A TO Z -->
+    <!-- TAB 1: ALPHABET -->
     <section id="tab-alphabet" class="tab-content active">
       <h2 class="section-title">🔤 Alphabet A to Z</h2>
-      <p class="section-subtitle">Tap the speaker to hear the phonics sound, then trace the letters with your finger or stylus!</p>
+      <p class="section-subtitle">Tap the speaker to hear the sound, then trace with your finger!</p>
       <div class="cards-grid" id="alphabet-grid"></div>
     </section>
 
-    <!-- TAB 2: NUMBERS 1 TO 20 -->
+    <!-- TAB 2: NUMBERS -->
     <section id="tab-numbers" class="tab-content">
       <h2 class="section-title">🔢 Numbers 1 – 20</h2>
-      <p class="section-subtitle">Tap each card to hear the number spoken aloud!</p>
+      <p class="section-subtitle">Tap any card to hear the number spoken aloud!</p>
       <div class="numbers-grid" id="numbers-grid"></div>
     </section>
 
-    <!-- TAB 3: 20 INTERACTIVE QUIZZES -->
+    <!-- TAB 3: QUIZZES -->
     <section id="tab-games" class="tab-content">
-      <h2 class="section-title">🎮 20 Fun Learning Quizzes</h2>
-      <p class="section-subtitle">Test your phonics, counting, and letter skills to earn stars!</p>
+      <h2 class="section-title">🎮 20 Learning Quizzes</h2>
+      <p class="section-subtitle">Answer each quiz to collect golden stars!</p>
 
-      <!-- Scoreboard Banner -->
       <div class="score-banner">
-        <div>⭐ Stars Earned: <span id="score-counter">0</span> / 20</div>
-        <div>🎯 Completed: <span id="completed-counter">0</span> / 20</div>
+        <div>⭐ Stars: <span id="score-counter">0</span> / 20</div>
+        <div>🎯 Done: <span id="completed-counter">0</span> / 20</div>
       </div>
 
-      <!-- 20 Quizzes Container -->
       <div class="quizzes-grid" id="quizzes-grid"></div>
     </section>
 
     <!-- TAB 4: CERTIFICATE -->
     <section id="tab-cert" class="tab-content">
       <div class="certificate-frame">
-        <div style="font-size: 3.5rem;">🌟 🎓 🌟</div>
+        <div style="font-size: 3rem;">🌟 🎓 🌟</div>
         <h1 class="cert-title">Certificate of Achievement</h1>
         <p class="cert-subtitle">This certificate is proudly awarded to:</p>
-        <input type="text" class="cert-input" placeholder="Type Child's Name Here" />
-        <p style="font-size: 1.2rem; color:#576574; line-height: 1.6;">
-          For successfully completing all <b>26 Alphabet letters</b>, numbers <b>1 to 20</b>, and all <b>20 Phonics & Counting Quizzes</b>!<br>
-          You are an early learning superstar! 🚀
+        <input type="text" class="cert-input" placeholder="Type Child's Name" />
+        <p style="font-size: 1rem; color:#576574; line-height: 1.5; margin: 12px 0;">
+          For completing all <b>26 Alphabet letters</b>, numbers <b>1 to 20</b>, and all <b>20 Quizzes</b>! 🚀
         </p>
-        <div style="display:flex; justify-content:space-around; margin-top:40px;">
+        <div style="display:flex; justify-content:space-around; margin-top:30px; gap: 10px;">
           <div>
-            <div style="border-bottom: 2px solid #576574; width:180px; height:30px;"></div>
-            <p style="font-size:0.9rem; margin-top:6px; color:#576574;">Teacher / Parent</p>
+            <div style="border-bottom: 2px solid #576574; width:120px; height:24px;"></div>
+            <p style="font-size:0.8rem; margin-top:4px; color:#576574;">Teacher / Parent</p>
           </div>
           <div>
-            <div id="cert-date" style="border-bottom: 2px solid #576574; width:180px; height:30px; font-weight:600;"></div>
-            <p style="font-size:0.9rem; margin-top:6px; color:#576574;">Date</p>
+            <div id="cert-date" style="border-bottom: 2px solid #576574; width:120px; height:24px; font-weight:600; font-size:0.85rem;"></div>
+            <p style="font-size:0.8rem; margin-top:4px; color:#576574;">Date</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Bottom Interactive Tab Bar -->
   <nav class="bottom-bar">
     <button class="nav-item active" onclick="switchTab('tab-alphabet', this)">
       <span class="icon">📖</span>
-      <span>Alphabet A–Z</span>
+      <span>A–Z</span>
     </button>
     <button class="nav-item" onclick="switchTab('tab-numbers', this)">
       <span class="icon">🔢</span>
-      <span>Numbers 1–20</span>
+      <span>1–20</span>
     </button>
     <button class="nav-item" onclick="switchTab('tab-games', this)">
       <span class="icon">🎮</span>
-      <span>20 Quizzes</span>
+      <span>Quizzes</span>
     </button>
     <button class="nav-item" onclick="switchTab('tab-cert', this)">
       <span class="icon">🏆</span>
-      <span>Certificate</span>
+      <span>Reward</span>
     </button>
   </nav>
 
   <script>
-    // 1. FULL ALPHABET (A TO Z) DATA
     const alphabetData = [
       { upper: 'A', lower: 'a', word: 'Apple', icon: '🍎', sound: 'æ', color: '#ff5e7e' },
       { upper: 'B', lower: 'b', word: 'Ball', icon: '⚽', sound: 'b', color: '#38b6ff' },
@@ -653,7 +577,6 @@
       { upper: 'Z', lower: 'z', word: 'Zebra', icon: '🦓', sound: 'z', color: '#778ca3' }
     ];
 
-    // 2. NUMBERS 1 TO 20 DATA
     const numbersData = [
       { num: 1, word: 'One', icon: '🍎' },
       { num: 2, word: 'Two', icon: '🐥' },
@@ -677,211 +600,29 @@
       { num: 20, word: 'Twenty', icon: '🌈' }
     ];
 
-    // 3. COMPLETE LIST OF 20 DIVERSE LEARNING QUIZZES
     const quizzesData = [
-      {
-        id: 1,
-        question: 'Which one starts with the letter "A"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🍎', label: 'Apple', correct: true, feedback: 'Super! A is for Apple!' },
-          { icon: '🐱', label: 'Cat', correct: false, feedback: 'Oops, Cat starts with C!' },
-          { icon: '🐶', label: 'Dog', correct: false, feedback: 'Dog starts with D!' }
-        ]
-      },
-      {
-        id: 2,
-        question: 'Which toy starts with the letter "B"?',
-        audioPrompt: null,
-        options: [
-          { icon: '⚽', label: 'Ball', correct: true, feedback: 'Great job! B is for Ball!' },
-          { icon: '🐟', label: 'Fish', correct: false, feedback: 'Fish starts with F!' },
-          { icon: '🚗', label: 'Car', correct: false, feedback: 'Car starts with C!' }
-        ]
-      },
-      {
-        id: 3,
-        question: 'Which cute pet starts with "C"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🐘', label: 'Elephant', correct: false, feedback: 'Elephant starts with E!' },
-          { icon: '🐱', label: 'Cat', correct: true, feedback: 'Awesome! C is for Cat!' },
-          { icon: '🦁', label: 'Lion', correct: false, feedback: 'Lion starts with L!' }
-        ]
-      },
-      {
-        id: 4,
-        question: 'Which friendly friend starts with "D"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🐶', label: 'Dog', correct: true, feedback: 'Woof woof! D is for Dog!' },
-          { icon: '🐵', label: 'Monkey', correct: false, feedback: 'Monkey starts with M!' },
-          { icon: '🍏', label: 'Apple', correct: false, feedback: 'Apple starts with A!' }
-        ]
-      },
-      {
-        id: 5,
-        question: 'Which giant animal starts with "E"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🦒', label: 'Giraffe', correct: false, feedback: 'Giraffe starts with G!' },
-          { icon: '🦓', label: 'Zebra', correct: false, feedback: 'Zebra starts with Z!' },
-          { icon: '🐘', label: 'Elephant', correct: true, feedback: 'Hooray! E is for Elephant!' }
-        ]
-      },
-      {
-        id: 6,
-        question: 'How many red apples are here? 🍎 🍎 🍎',
-        audioPrompt: null,
-        options: [
-          { icon: '2️⃣', label: '2', correct: false, feedback: 'Try counting again!' },
-          { icon: '3️⃣', label: '3', correct: true, feedback: '1, 2, 3! You counted 3 apples!' },
-          { icon: '4️⃣', label: '4', correct: false, feedback: 'Not quite 4!' }
-        ]
-      },
-      {
-        id: 7,
-        question: 'Which swimmer starts with the letter "F"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🐟', label: 'Fish', correct: true, feedback: 'Splish splash! F is for Fish!' },
-          { icon: '🐥', label: 'Duck', correct: false, feedback: 'Duck starts with D!' },
-          { icon: '🐸', label: 'Frog', correct: true, feedback: 'Great! F is also for Frog!' }
-        ]
-      },
-      {
-        id: 8,
-        question: 'Which tall friend starts with "G"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🦒', label: 'Giraffe', correct: true, feedback: 'Spot on! G is for Giraffe!' },
-          { icon: '🐯', label: 'Tiger', correct: false, feedback: 'Tiger starts with T!' },
-          { icon: '🐰', label: 'Bunny', correct: false, feedback: 'Bunny starts with B!' }
-        ]
-      },
-      {
-        id: 9,
-        question: '🔊 Listen to the audio and find the word:',
-        audioPrompt: 'Kite',
-        options: [
-          { icon: '🪁', label: 'Kite', correct: true, feedback: 'You listened carefully! That is a Kite!' },
-          { icon: '👒', label: 'Hat', correct: false, feedback: 'That is a Hat!' },
-          { icon: '🧃', label: 'Juice', correct: false, feedback: 'That is Juice!' }
-        ]
-      },
-      {
-        id: 10,
-        question: 'Which is the lowercase match for "H"?',
-        audioPrompt: null,
-        options: [
-          { icon: 'b', label: 'b', correct: false, feedback: 'That is letter b!' },
-          { icon: 'h', label: 'h', correct: true, feedback: 'Correct! Capital H matches lowercase h!' },
-          { icon: 'd', label: 'd', correct: false, feedback: 'That is letter d!' }
-        ]
-      },
-      {
-        id: 11,
-        question: 'How many shining stars do you count? ⭐ ⭐ ⭐ ⭐ ⭐',
-        audioPrompt: null,
-        options: [
-          { icon: '4️⃣', label: '4', correct: false, feedback: 'Count once more!' },
-          { icon: '5️⃣', label: '5', correct: true, feedback: 'Five golden stars! Excellent!' },
-          { icon: '6️⃣', label: '6', correct: false, feedback: 'Too many!' }
-        ]
-      },
-      {
-        id: 12,
-        question: 'Which playful jungle friend starts with "M"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🐵', label: 'Monkey', correct: true, feedback: 'Ooh ooh aah aah! M is for Monkey!' },
-          { icon: '🐧', label: 'Penguin', correct: false, feedback: 'Penguin starts with P!' },
-          { icon: '🦁', label: 'Lion', correct: false, feedback: 'Lion starts with L!' }
-        ]
-      },
-      {
-        id: 13,
-        question: '🔊 Listen to the sound and choose:',
-        audioPrompt: 'Owl',
-        options: [
-          { icon: '🐧', label: 'Penguin', correct: false, feedback: 'That is a Penguin!' },
-          { icon: '🦉', label: 'Owl', correct: true, feedback: 'Hoot hoot! You found the Owl!' },
-          { icon: '🦆', label: 'Duck', correct: false, feedback: 'That is a Duck!' }
-        ]
-      },
-      {
-        id: 14,
-        question: 'Which cold snowy bird starts with "P"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🐧', label: 'Penguin', correct: true, feedback: 'Waddle waddle! P is for Penguin!' },
-          { icon: '🐟', label: 'Fish', correct: false, feedback: 'Fish starts with F!' },
-          { icon: '🪺', label: 'Nest', correct: false, feedback: 'Nest starts with N!' }
-        ]
-      },
-      {
-        id: 15,
-        question: 'Which is the lowercase letter for "R"?',
-        audioPrompt: null,
-        options: [
-          { icon: 'n', label: 'n', correct: false, feedback: 'That is n!' },
-          { icon: 'm', label: 'm', correct: false, feedback: 'That is m!' },
-          { icon: 'r', label: 'r', correct: true, feedback: 'Bingo! R matches lowercase r!' }
-        ]
-      },
-      {
-        id: 16,
-        question: 'Which bright shining star in the sky starts with "S"?',
-        audioPrompt: null,
-        options: [
-          { icon: '☀️', label: 'Sun', correct: true, feedback: 'Warm and bright! S is for Sun!' },
-          { icon: '🌙', label: 'Moon', correct: false, feedback: 'Moon starts with M!' },
-          { icon: '☁️', label: 'Cloud', correct: false, feedback: 'Cloud starts with C!' }
-        ]
-      },
-      {
-        id: 17,
-        question: 'How many cute yellow ducklings? 🐥 🐥',
-        audioPrompt: null,
-        options: [
-          { icon: '1️⃣', label: '1', correct: false, feedback: 'There are more than one!' },
-          { icon: '2️⃣', label: '2', correct: true, feedback: 'Quack quack! Exactly 2 ducklings!' },
-          { icon: '3️⃣', label: '3', correct: false, feedback: 'Not quite 3!' }
-        ]
-      },
-      {
-        id: 18,
-        question: 'Which striped big cat starts with "T"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🐯', label: 'Tiger', correct: true, feedback: 'Roar! T is for Tiger!' },
-          { icon: '🦁', label: 'Lion', correct: false, feedback: 'Lion starts with L!' },
-          { icon: '🐻', label: 'Bear', correct: false, feedback: 'Bear starts with B!' }
-        ]
-      },
-      {
-        id: 19,
-        question: '🔊 Listen to the audio and click the matching item:',
-        audioPrompt: 'Umbrella',
-        options: [
-          { icon: '☂️', label: 'Umbrella', correct: true, feedback: 'Great ear! U is for Umbrella!' },
-          { icon: '👒', label: 'Hat', correct: false, feedback: 'That is a Hat!' },
-          { icon: '👟', label: 'Shoe', correct: false, feedback: 'That is a Shoe!' }
-        ]
-      },
-      {
-        id: 20,
-        question: 'Which striped black-and-white animal starts with "Z"?',
-        audioPrompt: null,
-        options: [
-          { icon: '🦓', label: 'Zebra', correct: true, feedback: 'Hooray! Z is for Zebra!' },
-          { icon: '🦒', label: 'Giraffe', correct: false, feedback: 'Giraffe starts with G!' },
-          { icon: '🐴', label: 'Horse', correct: false, feedback: 'Horse starts with H!' }
-        ]
-      }
+      { id: 1, question: 'Which one starts with "A"?', options: [{ icon: '🍎', label: 'Apple', correct: true, feedback: 'Super! A is for Apple!' }, { icon: '🐱', label: 'Cat', correct: false, feedback: 'Oops, Cat starts with C!' }, { icon: '🐶', label: 'Dog', correct: false, feedback: 'Dog starts with D!' }] },
+      { id: 2, question: 'Which toy starts with "B"?', options: [{ icon: '⚽', label: 'Ball', correct: true, feedback: 'Great job! B is for Ball!' }, { icon: '🐟', label: 'Fish', correct: false, feedback: 'Fish starts with F!' }, { icon: '🚗', label: 'Car', correct: false, feedback: 'Car starts with C!' }] },
+      { id: 3, question: 'Which cute pet starts with "C"?', options: [{ icon: '🐘', label: 'Elephant', correct: false, feedback: 'Elephant starts with E!' }, { icon: '🐱', label: 'Cat', correct: true, feedback: 'Awesome! C is for Cat!' }, { icon: '🦁', label: 'Lion', correct: false, feedback: 'Lion starts with L!' }] },
+      { id: 4, question: 'Which friendly friend starts with "D"?', options: [{ icon: '🐶', label: 'Dog', correct: true, feedback: 'Woof woof! D is for Dog!' }, { icon: '🐵', label: 'Monkey', correct: false, feedback: 'Monkey starts with M!' }, { icon: '🍏', label: 'Apple', correct: false, feedback: 'Apple starts with A!' }] },
+      { id: 5, question: 'Which giant animal starts with "E"?', options: [{ icon: '🦒', label: 'Giraffe', correct: false, feedback: 'Giraffe starts with G!' }, { icon: '🦓', label: 'Zebra', correct: false, feedback: 'Zebra starts with Z!' }, { icon: '🐘', label: 'Elephant', correct: true, feedback: 'Hooray! E is for Elephant!' }] },
+      { id: 6, question: 'How many apples? 🍎 🍎 🍎', options: [{ icon: '2️⃣', label: '2', correct: false, feedback: 'Try counting again!' }, { icon: '3️⃣', label: '3', correct: true, feedback: '1, 2, 3! You counted 3!' }, { icon: '4️⃣', label: '4', correct: false, feedback: 'Not quite 4!' }] },
+      { id: 7, question: 'Which swimmer starts with "F"?', options: [{ icon: '🐟', label: 'Fish', correct: true, feedback: 'Splish splash! F is for Fish!' }, { icon: '🐥', label: 'Duck', correct: false, feedback: 'Duck starts with D!' }, { icon: '🐸', label: 'Frog', correct: true, feedback: 'Great! F is also for Frog!' }] },
+      { id: 8, question: 'Which tall friend starts with "G"?', options: [{ icon: '🦒', label: 'Giraffe', correct: true, feedback: 'Spot on! G is for Giraffe!' }, { icon: '🐯', label: 'Tiger', correct: false, feedback: 'Tiger starts with T!' }, { icon: '🐰', label: 'Bunny', correct: false, feedback: 'Bunny starts with B!' }] },
+      { id: 9, question: '🔊 Listen and find the word:', audioPrompt: 'Kite', options: [{ icon: '🪁', label: 'Kite', correct: true, feedback: 'You got it! Kite!' }, { icon: '👒', label: 'Hat', correct: false, feedback: 'That is a Hat!' }, { icon: '🧃', label: 'Juice', correct: false, feedback: 'That is Juice!' }] },
+      { id: 10, question: 'Lowercase match for "H"?', options: [{ icon: 'b', label: 'b', correct: false, feedback: 'That is letter b!' }, { icon: 'h', label: 'h', correct: true, feedback: 'Correct! H matches h!' }, { icon: 'd', label: 'd', correct: false, feedback: 'That is letter d!' }] },
+      { id: 11, question: 'Count the stars: ⭐ ⭐ ⭐ ⭐ ⭐', options: [{ icon: '4️⃣', label: '4', correct: false, feedback: 'Count once more!' }, { icon: '5️⃣', label: '5', correct: true, feedback: 'Five golden stars! Nice!' }, { icon: '6️⃣', label: '6', correct: false, feedback: 'Too many!' }] },
+      { id: 12, question: 'Which jungle friend starts with "M"?', options: [{ icon: '🐵', label: 'Monkey', correct: true, feedback: 'Ooh ooh aah aah! M is for Monkey!' }, { icon: '🐧', label: 'Penguin', correct: false, feedback: 'Penguin starts with P!' }, { icon: '🦁', label: 'Lion', correct: false, feedback: 'Lion starts with L!' }] },
+      { id: 13, question: '🔊 Listen to the word:', audioPrompt: 'Owl', options: [{ icon: '🐧', label: 'Penguin', correct: false, feedback: 'That is a Penguin!' }, { icon: '🦉', label: 'Owl', correct: true, feedback: 'Hoot hoot! You found the Owl!' }, { icon: '🦆', label: 'Duck', correct: false, feedback: 'That is a Duck!' }] },
+      { id: 14, question: 'Which snowy bird starts with "P"?', options: [{ icon: '🐧', label: 'Penguin', correct: true, feedback: 'Waddle waddle! P is for Penguin!' }, { icon: '🐟', label: 'Fish', correct: false, feedback: 'Fish starts with F!' }, { icon: '🪺', label: 'Nest', correct: false, feedback: 'Nest starts with N!' }] },
+      { id: 15, question: 'Lowercase match for "R"?', options: [{ icon: 'n', label: 'n', correct: false, feedback: 'That is n!' }, { icon: 'm', label: 'm', correct: false, feedback: 'That is m!' }, { icon: 'r', label: 'r', correct: true, feedback: 'Bingo! R matches r!' }] },
+      { id: 16, question: 'Which sky star starts with "S"?', options: [{ icon: '☀️', label: 'Sun', correct: true, feedback: 'Warm and bright! S is for Sun!' }, { icon: '🌙', label: 'Moon', correct: false, feedback: 'Moon starts with M!' }, { icon: '☁️', label: 'Cloud', correct: false, feedback: 'Cloud starts with C!' }] },
+      { id: 17, question: 'How many ducks? 🐥 🐥', options: [{ icon: '1️⃣', label: '1', correct: false, feedback: 'There are more than one!' }, { icon: '2️⃣', label: '2', correct: true, feedback: 'Quack! Exactly 2 ducks!' }, { icon: '3️⃣', label: '3', correct: false, feedback: 'Not quite 3!' }] },
+      { id: 18, question: 'Which striped big cat starts with "T"?', options: [{ icon: '🐯', label: 'Tiger', correct: true, feedback: 'Roar! T is for Tiger!' }, { icon: '🦁', label: 'Lion', correct: false, feedback: 'Lion starts with L!' }, { icon: '🐻', label: 'Bear', correct: false, feedback: 'Bear starts with B!' }] },
+      { id: 19, question: '🔊 Listen and choose:', audioPrompt: 'Umbrella', options: [{ icon: '☂️', label: 'Umbrella', correct: true, feedback: 'Great ear! U is for Umbrella!' }, { icon: '👒', label: 'Hat', correct: false, feedback: 'That is a Hat!' }, { icon: '👟', label: 'Shoe', correct: false, feedback: 'That is a Shoe!' }] },
+      { id: 20, question: 'Which striped friend starts with "Z"?', options: [{ icon: '🦓', label: 'Zebra', correct: true, feedback: 'Hooray! Z is for Zebra!' }, { icon: '🦒', label: 'Giraffe', correct: false, feedback: 'Giraffe starts with G!' }, { icon: '🐴', label: 'Horse', correct: false, feedback: 'Horse starts with H!' }] }
     ];
 
-    // 4. RENDER 26 ALPHABET CARDS
     function renderAlphabet() {
       const grid = document.getElementById('alphabet-grid');
       grid.innerHTML = '';
@@ -903,18 +644,17 @@
           </div>
           <div class="tracing-box">
             <div class="tracing-header">
-              <span class="tracing-label">✏️ Trace ${item.upper} and ${item.lower}</span>
+              <span class="tracing-label">✏️ Trace ${item.upper} ${item.lower}</span>
               <button class="btn-clear" onclick="clearCanvas(${index})">Clear</button>
             </div>
             <canvas class="tracing-canvas" id="canvas-${index}"></canvas>
           </div>
         `;
         grid.appendChild(card);
-        setTimeout(() => setupCanvas(`canvas-${index}`, `${item.upper} ${item.lower}`), 40);
+        setTimeout(() => setupCanvas(`canvas-${index}`, `${item.upper} ${item.lower}`), 50);
       });
     }
 
-    // 5. RENDER NUMBERS 1-20
     function renderNumbers() {
       const grid = document.getElementById('numbers-grid');
       grid.innerHTML = '';
@@ -931,7 +671,6 @@
       });
     }
 
-    // 6. RENDER 20 INTERACTIVE QUIZZES
     let currentScore = 0;
     const completedSet = new Set();
 
@@ -942,16 +681,11 @@
       quizzesData.forEach((quiz) => {
         const div = document.createElement('div');
         div.className = 'game-container';
-        div.id = `quiz-box-${quiz.id}`;
 
-        let audioButtonHtml = '';
-        if (quiz.audioPrompt) {
-          audioButtonHtml = `
-            <button class="btn" style="background:#38b6ff; color:white; margin-bottom:12px; font-size:0.85rem; padding:6px 14px;" onclick="speakWord('${quiz.audioPrompt}')">
-              📢 Listen: "${quiz.audioPrompt}"
-            </button>
-          `;
-        }
+        let audioBtn = quiz.audioPrompt ? `
+          <button class="btn" style="background:#38b6ff; color:white; margin:0 auto 10px auto; font-size:0.8rem; padding:6px 12px;" onclick="speakWord('${quiz.audioPrompt}')">
+            📢 Listen: "${quiz.audioPrompt}"
+          </button>` : '';
 
         let optionsHtml = quiz.options.map(opt => `
           <div class="quiz-card" onclick="handleQuizAnswer(this, ${quiz.id}, ${opt.correct}, '${opt.feedback}')">
@@ -961,9 +695,9 @@
         `).join('');
 
         div.innerHTML = `
-          <div class="quiz-num-badge">Quiz #${quiz.id}</div>
+          <div class="quiz-num-badge">#${quiz.id}</div>
           <div class="game-question">${quiz.question}</div>
-          ${audioButtonHtml}
+          ${audioBtn}
           <div class="quiz-options">${optionsHtml}</div>
         `;
 
@@ -981,27 +715,23 @@
         document.getElementById('score-counter').textContent = currentScore;
         document.getElementById('completed-counter').textContent = completedSet.size;
 
-        // If completed all 20, cheer!
         if (completedSet.size === 20) {
           setTimeout(() => {
-            speakWord('Congratulations! You completed all 20 quizzes! Go get your certificate!');
-          }, 1500);
+            speakWord('Congratulations! You completed all 20 quizzes!');
+          }, 1400);
         }
       }
 
       setTimeout(() => {
         el.classList.remove('correct', 'wrong');
-      }, 1300);
+      }, 1200);
     }
 
-    // 7. WEB SPEECH API AUDIO ENGINE
     function speakPhonics(letter, word) {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        const text = `${letter}. ${word}.`;
-        const utterance = new SpeechSynthesisUtterance(text);
+        const utterance = new SpeechSynthesisUtterance(`${letter}. ${word}.`);
         utterance.rate = 0.85;
-        utterance.pitch = 1.1;
         window.speechSynthesis.speak(utterance);
       }
     }
@@ -1015,21 +745,22 @@
       }
     }
 
-    // 8. CANVAS TRACING ENGINE
     const canvasRegistry = {};
 
     function setupCanvas(id, guideText) {
       const canvas = document.getElementById(id);
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
-      const rect = canvas.getBoundingClientRect();
-      
-      canvas.width = rect.width;
-      canvas.height = rect.height;
+
+      function resize() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        drawGuides();
+      }
 
       function drawGuides() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
         ctx.strokeStyle = '#e2e8f0';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([4, 4]);
@@ -1039,15 +770,15 @@
         ctx.stroke();
         ctx.setLineDash([]);
 
-        ctx.font = 'bold 44px Fredoka, sans-serif';
+        ctx.font = 'bold 38px Fredoka, sans-serif';
         ctx.fillStyle = '#e2e8f0';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(guideText, canvas.width / 2, canvas.height / 2 + 3);
+        ctx.fillText(guideText, canvas.width / 2, canvas.height / 2 + 2);
       }
 
-      drawGuides();
-      canvasRegistry[id] = { canvas, ctx, drawGuides };
+      resize();
+      canvasRegistry[id] = { canvas, ctx, drawGuides, resize };
 
       let isDrawing = false;
 
@@ -1055,10 +786,7 @@
         const r = canvas.getBoundingClientRect();
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        return {
-          x: clientX - r.left,
-          y: clientY - r.top
-        };
+        return { x: clientX - r.left, y: clientY - r.top };
       }
 
       function start(e) {
@@ -1079,9 +807,7 @@
         ctx.stroke();
       }
 
-      function stop() {
-        isDrawing = false;
-      }
+      function stop() { isDrawing = false; }
 
       canvas.addEventListener('mousedown', start);
       canvas.addEventListener('mousemove', move);
@@ -1098,7 +824,6 @@
       if (entry) entry.drawGuides();
     }
 
-    // 9. TAB NAVIGATION
     function switchTab(tabId, el) {
       document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
       document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
@@ -1107,7 +832,10 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 10. INITIALIZATION
+    window.addEventListener('resize', () => {
+      Object.values(canvasRegistry).forEach(c => c.resize());
+    });
+
     window.onload = () => {
       renderAlphabet();
       renderNumbers();
